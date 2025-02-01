@@ -137,7 +137,7 @@
 
 // export default SignUp;
 
-import PhoneVerification from "./PhoneVrification";
+import PhoneVerification from "./PhoneVerification.jsx";
 
 const Signup = () => {
   return (

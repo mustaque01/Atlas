@@ -8,7 +8,7 @@ import { auth } from "../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 
-const App = () => {
+const PhoneVerification = () => {
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
@@ -213,4 +213,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default PhoneVerification;
