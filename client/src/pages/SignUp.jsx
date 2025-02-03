@@ -26,7 +26,7 @@ const SignUp = () => {
 
         try {
             alert("Sign up successful!");
-            navigate("/emailpage");
+            navigate("/");
         } catch (error) {
             console.error("Signup failed:", error);
             setError("Sign up failed. Please try again.");
@@ -137,16 +137,8 @@ const SignUp = () => {
 
 export default SignUp;
 
-// import PhoneVerification from "./PhoneVerification..jsx";
 
-// const Signup = () => {
-//   return (
-//     <div>
-//       <PhoneVerification/>
-//     </div>
-//   )
-// }
 
-// export default Signup
+
 
 
