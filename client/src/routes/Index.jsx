@@ -10,6 +10,7 @@ import DocumentVerification from '@/components/DocumentVerificationInterface'
 import Chatbot from '@/components/Chatbot'
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
+import PhoneVerification from '@/pages/PhoneVerification.'
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
         element :<App/>,
         children :[
             {
-              path:"/home",
+              path:"/",
               element: <Home/>  
          },
          {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
          {
             path:"/chatbot",
             element:<Chatbot />  
+         },
+         {
+            path:"/PhoneVerification",
+            element:<PhoneVerification />  
          },
 
         ]

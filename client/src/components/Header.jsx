@@ -8,10 +8,10 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-12">
               <div className=''>
-                {/* <span className='text-4xl'> Atlas</span> */}
-                <img src={atlas2} alt="" className='w-[200px] h-[70px] ml-10' />
+               
+              <a href="/"><img src={atlas2} alt="" className='w-[200px] h-[70px] ml-10' /></a>  
               </div>              <div className="hidden md:flex items-center gap-8">
-                <a href="/home" className="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="/" className="text-gray-300 hover:text-white transition-colors">Home</a>
                 <a href="/about" className="text-gray-300 hover:text-white transition-colors">About</a>
                 <a href="/faq" className="text-gray-300 hover:text-white transition-colors">FAQs</a>
                 <a href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</a>
@@ -23,8 +23,8 @@ const Header = () => {
 
               </div>
             </div>
-            <a href="/signup" className="px-4 py-2 text-gray-300 hover:text-white transition-colors">Login</a>
-            <a href="/get-started" className="bg-emerald-500 px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors">
+            {/* <a href="/PhoneVerification" className="px-4 py-2 text-gray-300 hover:text-white transition-colors">Login</a> */}
+            <a href="/PhoneVerification" className=" w-[7rem] bg-emerald-500 px-2 py-2 rounded-lg hover:bg-emerald-600 transition-colors">
               Get Started
             </a>
           </div>

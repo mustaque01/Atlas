@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+// import  { useState } from 'react';
 import {
-  ArrowRight, ChevronRight, Shield, Zap, BarChart3, Lock,
-  Users, Clock, Award, Cpu, Database, LineChart as ChartIcon,
-  CheckCircle, TrendingUp, CircleDollarSign, Brain
+  ArrowRight, Shield, Zap, Lock,
+  Users, LineChart as ChartIcon,
+  CheckCircle, TrendingUp, Brain
 } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, PieChart, Pie, Cell } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, PieChart, Pie, Cell } from 'recharts';
 
 const trendData = [
   { month: 'Jan', value: 30, users: 1200 },
@@ -23,7 +23,7 @@ const pieData = [
 const COLORS = ['#10b981', '#374151'];
 
 const HomePage = () => {
-  const [activeTab, setActiveTab] = useState('features');
+  // const [activeTab, setActiveTab] = useState('features');
 
   return (
     <div className="min-h-screen bg-black text-white">
