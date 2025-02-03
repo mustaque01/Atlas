@@ -49,7 +49,7 @@ const HomePage = () => {
             </p>
             <div className="flex items-center gap-4">
               <button className="bg-emerald-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors">
-                Start Free Trial <ArrowRight className="w-5 h-5" />
+                Get Started <ArrowRight className="w-5 h-5" />
               </button>
               <button className="border border-zinc-700 px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-zinc-900 transition-colors">
                 Watch Demo

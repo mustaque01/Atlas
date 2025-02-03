@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import  { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { signupUser } from '../routes/Auth.js'
 
 const SignUp = () => {
-    const navigate = useNavigate();
+  
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -25,8 +26,10 @@ const SignUp = () => {
         }
 
         try {
+            const response = await signupUser(formData);
+            console.log("User signed up:", response);
             alert("Sign up successful!");
-            navigate("/");
+          
         } catch (error) {
             console.error("Signup failed:", error);
             setError("Sign up failed. Please try again.");
@@ -121,7 +124,6 @@ const SignUp = () => {
                             </button>
                         </div>
                         <hr className="mb-6 border-t" />
-                       
                         <div className="text-center">
                             Already have an account?
                             <Link to="/login" className="inline-block text-md text-blue-600 align-baseline hover:text-blue-800">
@@ -136,9 +138,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-
-
-
-
-

@@ -11,7 +11,7 @@ import Chatbot from '@/components/Chatbot'
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
 import PhoneVerification from '@/pages/PhoneVerification.'
-
+import Dashboard from '@/pages/Dashboard'
 
 const router = createBrowserRouter([
     {
@@ -58,7 +58,10 @@ const router = createBrowserRouter([
             path:"/PhoneVerification",
             element:<PhoneVerification />  
          },
-
+         {
+            path:"/dashboard",
+            element:<Dashboard />  
+         },
         ]
     }
 ])
