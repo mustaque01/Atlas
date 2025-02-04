@@ -48,7 +48,7 @@ const SignUp = () => {
                                     First Name
                                 </label>
                                 <input
-                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:ring-1 focus:ring-green-500"
                                     id="firstName"
                                     type="text"
                                     placeholder="First Name"
@@ -62,7 +62,7 @@ const SignUp = () => {
                                     Last Name
                                 </label>
                                 <input
-                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:ring-1 focus:ring-green-500"
                                     id="lastName"
                                     type="text"
                                     placeholder="Last Name"
@@ -77,7 +77,7 @@ const SignUp = () => {
                                 Email
                             </label>
                             <input
-                                className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:ring-1 focus:ring-green-500"
                                 id="email"
                                 type="email"
                                 placeholder="Email"
@@ -92,7 +92,7 @@ const SignUp = () => {
                                     Password
                                 </label>
                                 <input
-                                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:ring-1 focus:ring-green-500"
                                     id="password"
                                     type="password"
                                     placeholder="**************"
@@ -106,7 +106,7 @@ const SignUp = () => {
                                     Confirm Password
                                 </label>
                                 <input
-                                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:ring-1 focus:ring-green-500"
                                     id="confirmPassword"
                                     type="password"
                                     placeholder="******************"

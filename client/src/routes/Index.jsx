@@ -2,7 +2,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
 import Home from '../pages/Home'
-import Signup from '../pages/Signup'
+import SignUp from '@/pages/SignUp'
+import Login from '@/pages/Login'
 import ApprovalWorkflow from '@/components/ApprovalWorkflowInterface'
 import LoanApplicationForm from '@/components/LoanApplicationForm'
 import RiskAssessment from '@/components/RiskAssessmentDashboard'
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
     },
          {
             path:"/signup",
-            element:<Signup />  
+            element:<SignUp/>  
+         },
+         {
+            path:"/login",
+            element:<Login/>  
          },
          {
             path:"/dashboard/loan/approval",
