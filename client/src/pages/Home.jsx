@@ -39,7 +39,7 @@ const HomePage = () => {
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Transform Your <br />
-              <span className="text-emerald-400">Lending Operations</span><br />
+              <span className="text-rose-500">Lending Operations</span><br />
               With AI Intelligence
             </h1>
             <p className="text-gray-400 text-xl mb-8 max-w-2xl">
@@ -48,7 +48,7 @@ const HomePage = () => {
               process and reduce risks.
             </p>
             <div className="flex items-center gap-4">
-              <button className="bg-emerald-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors">
+              <button className="bg-rose-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors">
                 Get Started <ArrowRight className="w-5 h-5" />
               </button>
               <button className="border border-zinc-700 px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-zinc-900 transition-colors">
@@ -107,7 +107,7 @@ const HomePage = () => {
       </div>
 
       {/* Main Features */}
-      <div className="py-20 bg-zinc-900/50">
+      <div className="py-20 bg-emerald-500/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Powered by Advanced Technology</h2>
@@ -166,7 +166,7 @@ const HomePage = () => {
                   "Custom reporting tools"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-500" />
+                    <CheckCircle className="w-5 h-5 text-rose-500" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -178,14 +178,14 @@ const HomePage = () => {
                   <AreaChart data={trendData}>
                     <defs>
                       <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#F33A6A" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#F33A6A" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                     <XAxis dataKey="month" stroke="#666" />
                     <YAxis stroke="#666" />
-                    <Tooltip contentStyle={{ background: '#1a1a1a', border: 'none' }} />
+                    <Tooltip contentStyle={{ background: '#F33A6A', border: 'none' }} />
                     <Area type="monotone" dataKey="value" stroke="#10b981" fillOpacity={1} fill="url(#colorValue)" />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -196,7 +196,7 @@ const HomePage = () => {
       </div>
 
       {/* Process Flow */}
-      <div className="py-20 bg-zinc-900/50">
+      <div className="py-20 bg-zinc/50">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Streamlined Loan Process</h2>
@@ -245,42 +245,178 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* AI Decision Making */}
-      <div className="py-20">
+      {/* Previous code remains the same until Metrics Section */}
+
+{/* After Metrics Section, add the following: */}
+
+      {/* Success Stories */}
+      <div className="py-20 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-zinc-900 p-6 rounded-xl">
-                  <div className="h-[200px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie
-                          data={pieData}
-                          innerRadius={60}
-                          outerRadius={80}
-                          paddingAngle={5}
-                          dataKey="value"
-                        >
-                          {pieData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <div className="text-center mt-4">
-                    <p className="text-sm text-gray-400">AI vs Manual Decisions</p>
-                  </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Success Stories</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              See how leading financial institutions have transformed their lending operations with our AI-powered platform.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
+              <img 
+                src="/api/placeholder/400/300" 
+                alt="Bank office interior" 
+                className="w-full h-48 object-cover rounded-lg mb-6"
+              />
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Global Bank Corp</h3>
+                <p className="text-gray-400">Reduced loan processing time by 75% while improving accuracy by 35% using our AI-driven analysis.</p>
+                <div className="flex items-center gap-2 text-emerald-400">
+                  <span>Read case study</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
+              <img 
+                src="/api/placeholder/400/300" 
+                alt="Modern office space" 
+                className="w-full h-48 object-cover rounded-lg mb-6"
+              />
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">FinTech Solutions</h3>
+                <p className="text-gray-400">Achieved 99.9% accuracy in fraud detection with our blockchain verification system.</p>
+                <div className="flex items-center gap-2 text-emerald-400">
+                  <span>Read case study</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
+              <img 
+                src="/api/placeholder/400/300" 
+                alt="Data visualization" 
+                className="w-full h-48 object-cover rounded-lg mb-6"
+              />
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Credit Union Plus</h3>
+                <p className="text-gray-400">Expanded lending portfolio by 200% while maintaining risk levels using AI-powered assessments.</p>
+                <div className="flex items-center gap-2 text-emerald-400">
+                  <span>Read case study</span>
+                  <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
+      {/* AI Technology Showcase */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="bg-rose-500/10 text-rose-500 px-4 py-2 rounded-full inline-block mb-6">
+                Advanced AI Technology
+              </div>
+              <h2 className="text-4xl font-bold mb-6">Experience Next-Gen Loan Processing</h2>
+              <p className="text-gray-400 mb-8">
+                Our advanced AI system analyzes thousands of data points in real-time to make accurate lending decisions while ensuring compliance and reducing risk.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-zinc-900/50 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-emerald-400 mb-2">94%</div>
+                  <p className="text-gray-400">Reduction in manual review time</p>
+                </div>
+                <div className="bg-zinc-900/50 p-6 rounded-xl">
+                  <div className="text-4xl font-bold text-emerald-400 mb-2">99.9%</div>
+                  <p className="text-gray-400">Fraud detection accuracy</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src="/api/placeholder/600/400" 
+                alt="AI visualization" 
+                className="rounded-xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-purple-500/20 rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
+          <div className="bg-gradient-to-br from-emerald-500/20 to-purple-500/20 p-12 rounded-2xl text-center">
+            <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Lending?</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+              Join leading financial institutions in revolutionizing their loan origination process with AI-powered technology.
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <button className="bg-rose-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors">
+                Start Free Trial <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="bg-white/10 px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-white/20 transition-colors">
+                Schedule Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div className="space-y-4">
+              <div className="text-2xl font-bold text-emerald-400">LoanAI</div>
+              <p className="text-gray-400">
+                Next-generation loan origination platform powered by artificial intelligence.
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="font-semibold">Product</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>Features</li>
+                <li>Solutions</li>
+                <li>Pricing</li>
+                <li>Documentation</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold">Company</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>About</li>
+                <li>Careers</li>
+                <li>Blog</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold">Legal</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+                <li>Security</li>
+                <li>Compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-gray-400">
+            <p>&copy; 2025 LoanAI. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
-}
+};
 
 export default HomePage;

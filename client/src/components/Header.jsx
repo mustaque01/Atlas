@@ -4,7 +4,7 @@ import atlas2 from '../assets/atlas2.png';
 
 const Header = () => {
   return (
-    <nav className="border-zinc-800 bg-black/50 backdrop-blur-lg w-full z-50 static top-0">
+    <nav className="border-zinc-800 bg-gray-900 rounded-full m-4 transparent-blur backdrop-blur-lg w-full z-50 fixed">
       <div className="max-w-7xl mx-auto  py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Navigation Links Container */}
@@ -26,7 +26,7 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <Link
               to="/PhoneVerification"
-              className="w-[10rem] bg-emerald-500 px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex justify-center items-center gap-2"
+              className="w-[10rem] bg-rose-400 px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex justify-center items-center gap-2"
             >
               Get Started <ArrowRight className="w-5 h-4" />
             </Link>
