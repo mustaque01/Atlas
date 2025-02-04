@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, AlertCircle, Upload, FileText } from 'lucide-react';
+import { CheckCircle, Upload, FileText } from 'lucide-react';
 
 const LoanApplicationForm = () => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    personalInfo: {},
-    employmentInfo: {},
-    loanDetails: {},
-    documents: []
-  });
+  // const [formData, setFormData] = useState({
+  //   personalInfo: {},
+  //   employmentInfo: {},
+  //   loanDetails: {},
+  //   documents: []
+  // });
 
   const steps = [
     { id: 1, title: 'Personal Information' },
