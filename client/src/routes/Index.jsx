@@ -35,11 +35,11 @@ const router = createBrowserRouter([
             element:<Signup />  
          },
          {
-            path:"/approval",
+            path:"/dashboard/loan/approval",
             element:<ApprovalWorkflow/>  
          },
          {
-            path:"/loan",
+            path:"/dashboard/loan",
             element:< LoanApplicationForm/>  
          },
          {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             element:<RiskAssessment />  
          },
          {
-            path:"/documentverification",
+            path:"/dashboard/loan/documentverification",
             element:<DocumentVerification />  
          },
          {

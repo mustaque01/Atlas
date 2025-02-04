@@ -1,9 +1,8 @@
-import  { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { signupUser } from '../routes/Auth.js'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signupUser } from '@/routes/Auth'; // Ensure the correct import path
 
 const SignUp = () => {
-  
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -11,8 +10,9 @@ const SignUp = () => {
         password: '',
         confirmPassword: '',
     });
-    const [error, setError] = useState("");
 
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
@@ -29,7 +29,7 @@ const SignUp = () => {
             const response = await signupUser(formData);
             console.log("User signed up:", response);
             alert("Sign up successful!");
-          
+            navigate("/dashboard");
         } catch (error) {
             console.error("Signup failed:", error);
             setError("Sign up failed. Please try again.");
@@ -37,7 +37,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className=" min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="w-[500px] shadow-md bg-white rounded-lg">
                 <div className="px-6 py-4 mt-4">
                     <form className="px-4 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
@@ -54,6 +54,7 @@ const SignUp = () => {
                                     placeholder="First Name"
                                     value={formData.firstName}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                             <div className="md:ml-2">
@@ -67,6 +68,7 @@ const SignUp = () => {
                                     placeholder="Last Name"
                                     value={formData.lastName}
                                     onChange={handleChange}
+                                    required
                                 />
                             </div>
                         </div>
@@ -83,7 +85,6 @@ const SignUp = () => {
                                 onChange={handleChange}
                                 required
                             />
-                           
                         </div>
                         <div className="mb-4 md:flex md:justify-between">
                             <div className="mb-4 md:mr-2 md:mb-0">
@@ -118,7 +119,7 @@ const SignUp = () => {
                         <div className="mb-6 text-center">
                             <button
                                 type="submit"
-                                className='w-full px-4 py-2 font-bold text-white rounded-full bg-green-600'
+                                className="w-full px-4 py-2 font-bold text-white rounded-full bg-green-600"
                             >
                                 Sign Up
                             </button>

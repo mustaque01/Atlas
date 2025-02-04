@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000/api'; // Fallback to localhost if env variable is not set
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000/api/auth';
 
 // Signup function
 export const signupUser = async (userData) => {
@@ -13,8 +13,7 @@ export const signupUser = async (userData) => {
         return response.data;  // axios automatically parses JSON
 
     } catch (error) {
-        // Log the error for debugging
         console.error('Error during signup:', error.response?.data || error.message);
-        throw new Error(error.response?.data?.message || 'Signup failed');
+        throw new Error(error.response?.data?.message || 'Signup failed ho gya');
     }
 };

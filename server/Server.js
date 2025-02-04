@@ -15,7 +15,7 @@ app.use(cookieParser())
 
 
 
-app.use("/api", router);
+app.use("/api/auth", router);
 
 
 app.get('/', (req, res) => {
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/api/signup', (req, res) => {
-    res.send({ message: 'User signed up successfully' });
-});
+// app.post('/api/signup', (req, res) => {
+//     res.send({ message: 'User signed up successfully' });
+// });
 
 const PORT = process.env.PORT ;
 
