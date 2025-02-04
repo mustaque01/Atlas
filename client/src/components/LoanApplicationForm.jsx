@@ -18,9 +18,55 @@ const LoanApplicationForm = () => {
     { id: 4, title: 'Document Upload' },
     { id: 5, title: 'Review & Submit' }
   ];
+  const employmentTypes = [
+    'Agriculture/Farming',
+    'Private Sector',
+    'Public Sector',
+    'Defence',
+    'Business Owner',
+    'Self Employed Professional',
+    'Government Service',
+    'Retired',
+    'Homemaker',
+    'Student'
+  ];
+
+  // Updated income categories in INR
+  const incomeCategories = [
+    'Below ₹2.5 Lakhs',
+    '₹2.5 Lakhs - ₹5 Lakhs',
+    '₹5 Lakhs - ₹7.5 Lakhs',
+    '₹7.5 Lakhs - ₹10 Lakhs',
+    '₹10 Lakhs - ₹15 Lakhs',
+    '₹15 Lakhs - ₹25 Lakhs',
+    'Above ₹25 Lakhs'
+  ];
+
+  const loanTypes = [
+    'Personal Loan',
+    'Home Loan',
+    'Car Loan',
+    'Education Loan',
+    'Business Loan',
+    'Agriculture Loan',
+    'Gold Loan'
+  ];
+
+  const loanReasons = [
+    'Debt Consolidation',
+    'Home Purchase/Construction',
+    'Business Expansion',
+    'Education',
+    'Marriage',
+    'Medical Emergency',
+    'Agriculture',
+    'Vehicle Purchase',
+    'Home Renovation',
+    'Travel'
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className=" bg-gray-800 text-white p-6 rounded-2xl">
       {/* Progress Tracker */}
       <div className="mb-8">
         <div className="flex justify-between items-center">
@@ -93,6 +139,76 @@ const LoanApplicationForm = () => {
                   className="w-full p-3 bg-gray-700 rounded-lg"
                   placeholder="Enter your address"
                 />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2" >Gender</label>
+                <select className="w-full p-3 bg-gray-700 text-gray-400 rounded-lg">
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Date of Birth</label>
+                <input 
+                  type="date"
+                  className="w-full p-3 bg-gray-700 rounded-lg text-gray-400"
+                />
+              </div>
+            </div>
+          )}
+
+{step === 2 && (
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Employment Type</label>
+                <select className="w-full p-3 bg-gray-700 rounded-lg text-gray-400">
+                  <option value="">Select employment type</option>
+                  {employmentTypes.map(type => (
+                    <option key={type} value={type.toLowerCase()}>{type}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Annual Income</label>
+                <select className="w-full p-3 bg-gray-700 rounded-lg text-gray-400">
+                  <option value="">Select income category</option>
+                  {incomeCategories.map(category => (
+                    <option key={category} value={category.toLowerCase()}>{category}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">Loan Type</label>
+                <select className="w-full p-3 bg-gray-700 rounded-lg text-gray-400">
+                  <option value="">Select loan type</option>
+                  {loanTypes.map(type => (
+                    <option key={type} value={type.toLowerCase()}>{type}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-400">Loan Amount</label>
+                <input 
+                  type="number"
+                  className="w-full p-3 bg-gray-700 rounded-lg"
+                  placeholder="Enter loan amount in ₹"
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-sm font-medium mb-2 ">Reason for Loan</label>
+                <select className="w-full p-3 bg-gray-700 rounded-lg text-gray-400">
+                  <option value="">Select reason for loan</option>
+                  {loanReasons.map(reason => (
+                    <option key={reason} value={reason.toLowerCase()}>{reason}</option>
+                  ))}
+                </select>
               </div>
             </div>
           )}

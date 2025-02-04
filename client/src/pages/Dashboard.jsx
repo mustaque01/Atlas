@@ -2,11 +2,31 @@ import { IoMenu } from "react-icons/io5";
 import { SiGoogleforms } from "react-icons/si";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import LoanApplicationForm from "@/components/LoanApplicationForm";
 import DashboardContent from "./DashboardContent";
-
+import DocumentVerification from "@/components/DocumentVerificationInterface";
+import ApprovalWorkflow from "@/components/ApprovalWorkflowInterface";
 const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeContent, setActiveContent] = useState('dashboardContent');
 
+  // Moved renderContent inside the component
+  const renderContent = () => {
+    switch(activeContent) {
+      case 'dashboardContent':
+        return <DashboardContent />;
+      case 'loanApplication':
+        return <LoanApplicationForm />;
+      case 'documentVerification':
+        return <DocumentVerification/>;
+      case 'loanApproval':
+        return <ApprovalWorkflow />;
+      // case 'settings':
+      //   return <Settings />;
+      // default:
+        return <DashboardContent/>;
+    }
+  } 
   return (
     <div>
       <div className="flex h-screen bg-gray-100">
@@ -16,7 +36,7 @@ const Dashboard = () => {
         {/* <!-- Sidebar --> */}
         <div className="hidden peer-checked:flex md:flex flex-col w-64 bg-gray-800 transition-all duration-300 ease-in-out">
           <div className="flex items-center justify-between h-16 bg-gray-900 px-4">
-            <span className="text-white font-bold uppercase">Atlas</span>
+            <span className="text-white font-bold uppercase ml-5">Atlas</span>
             <label htmlFor="menu-toggle" className="text-white cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -33,17 +53,16 @@ const Dashboard = () => {
                 />
               </svg>
             </label>
-            <RxCross2 size={30} className="text-white"/>
           </div>
           <div className="flex flex-col flex-1 overflow-y-auto">
             <nav className="flex-1 px-2 py-4 bg-gray-800">
-              <a
-                href="/dashboard"
-                className="flex items-center px-6 gap-2 py-2 text-gray-100 hover:bg-gray-700 group"
+              <button
+                onClick={() => setActiveContent('dashboardContent')}
+                className="flex items-center px-6 gap-2 py-2 text-gray-100 hover:bg-gray-700 cursor-pointer w-full"
               >
                 <IoMenu size={25} className="" />
                 Dashboard
-              </a>
+              </button>
 
               {/* <!-- Application with subitems --> */}
               <div className="mb-2 relative group">
@@ -65,15 +84,15 @@ const Dashboard = () => {
 
                 {isVisible && (
                   <div className="flex flex-col bg-white text-gray-800 mt-1 transition-all duration-300">
-                    <a href="/dashboard/loan" className="block px-4 py-2 hover:bg-gray-200">
+                    <button onClick={() => setActiveContent('loanApplication')} className="block px-4 py-2 hover:bg-gray-200 text-left">
                      Loan Application
-                    </a>
-                    <a href="/dashboard/loan/documentverification" className="block px-4 py-2 hover:bg-gray-200">
+                    </button>
+                    <button onClick={() => setActiveContent('documentVerification')} className="block px-4 py-2 hover:bg-gray-200 text-left">
                      Document Verification
-                    </a>
-                    <a href="dashboard/loan/approval" className="block px-4 py-2 hover:bg-gray-200">
+                    </button>
+                    <button onClick={() => setActiveContent('loanApproval')} className="block px-4 py-2 hover:bg-gray-200 al text-left">
                         Approval
-                    </a>
+                    </button>
                   </div>
                 )}
                 {/* <!-- Arrow Icon --> */}
@@ -253,9 +272,9 @@ const Dashboard = () => {
 
         {/* <!-- Main content --> */}
         <div className="flex flex-col flex-1 overflow-y-auto">
-          <div className="p-4">
-           <DashboardContent />
-          </div>
+        <div className="flex-1 p-6">
+        {renderContent()}
+      </div>
         </div>
       </div>
     </div>

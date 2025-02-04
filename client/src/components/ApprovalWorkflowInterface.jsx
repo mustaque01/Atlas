@@ -58,7 +58,7 @@ const ApprovalWorkflow = () => {
     <div className="space-y-6">
       <Card className="bg-gray-800 border-0">
         <CardHeader>
-          <CardTitle>Active Applications</CardTitle>
+          <CardTitle className="text-gray-300">Active Applications</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-6">
@@ -66,7 +66,7 @@ const ApprovalWorkflow = () => {
               <div key={app.id} className="p-6 bg-gray-700 rounded-lg">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h4 className="text-lg font-medium">{app.applicant}</h4>
+                    <h4 className="text-lg font-medium  text-gray-300">{app.applicant}</h4>
                     <p className="text-sm text-gray-400">
                       {app.type} - ${app.amount.toLocaleString()}
                     </p>
@@ -101,7 +101,7 @@ const ApprovalWorkflow = () => {
                 <div className="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
                   <div className="flex items-center gap-3">
                     <AlertCircle className="text-yellow-500" />
-                    <span>Next Action: {app.nextAction}</span>
+                    <span className='text-gray-300'>Next Action: {app.nextAction}</span>
                   </div>
                   <button className="px-4 py-2 bg-emerald-500 rounded-lg flex items-center gap-2">
                     Take Action

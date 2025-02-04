@@ -54,7 +54,7 @@ const DocumentVerification = () => {
     <div className="space-y-6">
       <Card className="bg-gray-800 border-0">
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
+          <CardTitle className="flex items-center justify-between text-white">
             <span>Document Verification</span>
             <div className="flex gap-2">
               <button className="p-2 bg-gray-700 rounded-lg">
@@ -74,7 +74,7 @@ const DocumentVerification = () => {
                   <div className="flex items-center gap-4">
                     <FileText className="text-gray-400" />
                     <div>
-                      <h4 className="font-medium">{doc.name}</h4>
+                      <h4 className="font-medium text-gray-900">{doc.name}</h4>
                       <p className="text-sm text-gray-400">{doc.type}</p>
                     </div>
                   </div>
@@ -83,17 +83,17 @@ const DocumentVerification = () => {
                 <div className="mt-4 grid grid-cols-3 gap-4">
                   <div className="p-3 bg-gray-800 rounded-lg">
                     <div className="text-sm text-gray-400">AI Confidence</div>
-                    <div className="text-lg font-medium">{doc.aiScore}%</div>
+                    <div className="text-lg font-medium text-gray-300">{doc.aiScore}%</div>
                   </div>
                   <div className="p-3 bg-gray-800 rounded-lg">
                     <div className="text-sm text-gray-400">Last Checked</div>
-                    <div className="text-lg font-medium">{doc.lastChecked}</div>
+                    <div className="text-lg font-medium text-gray-300">{doc.lastChecked}</div>
                   </div>
                   <div className="p-3 bg-gray-800 rounded-lg">
                     <div className="text-sm text-gray-400">Security Status</div>
                     <div className="flex items-center gap-2">
                       <Shield className="text-emerald-500" />
-                      <span>Secure</span>
+                      <span className='text-gray-300'>Secure</span>
                     </div>
                   </div>
                 </div>
