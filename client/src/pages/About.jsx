@@ -10,7 +10,7 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-teal-900 to-teal-800 opacity-90" />
           <div className="absolute inset-y-0 right-0 w-1/2">
             <svg
-              className="h-full w-full text-white opacity-10"
+              className="h-full w-screen text-white opacity-10"
               fill="currentColor"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"

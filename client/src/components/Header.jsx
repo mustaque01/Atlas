@@ -4,7 +4,7 @@ import atlas2 from '../assets/atlas2.png';
 
 const Header = () => {
   return (
-    <nav className="border-zinc-800 bg-gray-900 rounded-full m-4 transparent-blur backdrop-blur-lg w-full z-50 ">
+    <nav className="border-zinc-800 bg-gray-900 rounded-full mt-2 mb-2 sticky top-0 left-0 w-full z-50 backdrop-blur-lg">
       <div className="max-w-7xl mx-auto  py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Navigation Links Container */}
