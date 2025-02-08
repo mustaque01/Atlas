@@ -262,7 +262,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
               <img 
-                src="/api/placeholder/400/300" 
+                src="https://plus.unsplash.com/premium_photo-1661349622758-072987fa888f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Bank office interior" 
                 className="w-full h-48 object-cover rounded-lg mb-6"
               />
@@ -278,7 +278,7 @@ const HomePage = () => {
 
             <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
               <img 
-                src="/api/placeholder/400/300" 
+                src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Modern office space" 
                 className="w-full h-48 object-cover rounded-lg mb-6"
               />
@@ -294,7 +294,7 @@ const HomePage = () => {
 
             <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
               <img 
-                src="/api/placeholder/400/300" 
+                src="https://plus.unsplash.com/premium_photo-1664478157873-50d4963c1d11?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Data visualization" 
                 className="w-full h-48 object-cover rounded-lg mb-6"
               />
@@ -338,7 +338,7 @@ const HomePage = () => {
             
             <div className="relative">
               <img 
-                src="/api/placeholder/600/400" 
+                src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="AI visualization" 
                 className="rounded-xl"
               />
@@ -367,54 +367,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="py-12 border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="space-y-4">
-              <div className="text-2xl font-bold text-emerald-400">LoanAI</div>
-              <p className="text-gray-400">
-                Next-generation loan origination platform powered by artificial intelligence.
-              </p>
-            </div>
-            
-            <div className="space-y-4">
-              <h3 className="font-semibold">Product</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Features</li>
-                <li>Solutions</li>
-                <li>Pricing</li>
-                <li>Documentation</li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>About</li>
-                <li>Careers</li>
-                <li>Blog</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold">Legal</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Security</li>
-                <li>Compliance</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-gray-400">
-            <p>&copy; 2025 LoanAI. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

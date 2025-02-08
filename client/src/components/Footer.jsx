@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             
             <div className="space-y-4">
-              <h3 className="font-semibold">Product</h3>
+              <h3 className="font-semibold text-emerald-500">Product</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><a href='/'>Home</a></li>
                 <li>Pricing</li>
@@ -24,7 +24,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-semibold">Company</h3>
+              <h3 className="font-semibold text-emerald-500">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><a href='/about'>About</a></li>
                 <li>Blog</li>
@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-semibold">Legal</h3>
+              <h3 className="font-semibold text-emerald-500">Legal</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>Privacy Policy</li>
                 <li>Terms of Service</li>
