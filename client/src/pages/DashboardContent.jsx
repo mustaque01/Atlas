@@ -69,17 +69,17 @@ const DashboardOverview = () => {
   ];
 
   return (
-    <div className="p-6 space-y-6 bg-zinc-950 min-h-screen">
+    <div className="p-6 space-y-6 bg-gray-800  rounded-3xl ">
       {/* Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 rounded-b-lg">
         {metrics.map((metric, index) => (
           <Card 
             key={index} 
-            className="bg-zinc-900 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
+            className="bg-gray-700 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
             onClick={() => navigate(metric.link)}
           >
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-zinc-400">
+              <CardTitle className="text-xl font-medium text-gray-200">
                 {metric.title}
               </CardTitle>
               <div className={`${metric.color} bg-zinc-800 p-2 rounded-lg`}>
@@ -87,8 +87,8 @@ const DashboardOverview = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{metric.value}</div>
-              <p className="text-xs text-zinc-400 mt-1">
+              <div className="text-2xl font-bold  text-gray-200">{metric.value}</div>
+              <p className="text-s text-zinc-400 mt-1">
                 <span className={`${metric.color}`}>{metric.change}</span> from last month
               </p>
             </CardContent>
@@ -98,9 +98,9 @@ const DashboardOverview = () => {
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-gray-700 border-zinc-800">
           <CardHeader>
-            <CardTitle className="text-lg">Application Trends</CardTitle>
+            <CardTitle className="text-xl text-gray-200">Application Trends</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -139,9 +139,9 @@ const DashboardOverview = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800">
+        <Card className="bg-gray-700 border-zinc-800">
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-lg">Recent Applications</CardTitle>
+            <CardTitle className="text-xl text-gray-200">Recent Applications</CardTitle>
             <button 
               onClick={() => navigate('/applications')}
               className="text-sm text-zinc-400 hover:text-white flex items-center gap-2"
@@ -151,7 +151,7 @@ const DashboardOverview = () => {
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full text-gray-200">
                 <thead>
                   <tr className="border-b border-zinc-800">
                     <th className="text-left py-3 text-sm font-medium text-zinc-400">ID</th>
@@ -193,11 +193,11 @@ const DashboardOverview = () => {
       {/* Insights Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card 
-          className="bg-zinc-900 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
+          className="bg-gray-700 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
           onClick={() => navigate('/insights/risk')}
         >
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Risk Analysis</CardTitle>
+            <CardTitle className="text-xl text-gray-200 font-medium">Risk Analysis</CardTitle>
             <AlertCircle className="w-5 h-5 text-yellow-500" />
           </CardHeader>
           <CardContent>
@@ -206,11 +206,11 @@ const DashboardOverview = () => {
         </Card>
 
         <Card 
-          className="bg-zinc-900 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
+          className="bg-gray-700 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
           onClick={() => navigate('/insights/performance')}
         >
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Processing Performance</CardTitle>
+            <CardTitle className="text-xl  text-gray-200 font-medium">Processing Performance</CardTitle>
             <TrendingUp className="w-5 h-5 text-emerald-500" />
           </CardHeader>
           <CardContent>
@@ -219,11 +219,11 @@ const DashboardOverview = () => {
         </Card>
 
         <Card 
-          className="bg-zinc-900 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
+          className="bg-gray-700 border-zinc-800 hover:border-zinc-700 cursor-pointer transition-all"
           onClick={() => navigate('/insights/analytics')}
         >
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Analytics Overview</CardTitle>
+            <CardTitle className="text-xl text-gray-200 font-medium">Analytics Overview</CardTitle>
             <BarChart2 className="w-5 h-5 text-blue-500" />
           </CardHeader>
           <CardContent>

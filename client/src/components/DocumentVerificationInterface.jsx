@@ -115,8 +115,8 @@ const DocumentVerification = () => {
   };
 
   return (
-    <div className="p-6">
-      <Card className="bg-gray-800 text-white">
+    <div className="p-6 ">
+      <Card className="bg-gray-800 text-white rounded-3xl">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Document Verification</CardTitle>
           <p className="text-gray-400">Upload and verify your documents</p>
@@ -124,9 +124,9 @@ const DocumentVerification = () => {
         
         <CardContent>
           {/* Document Upload Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-gray-700 rounded-b-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-gray-700 rounded-3xl">
             {requiredDocuments.map((docType) => (
-              <div key={docType.type} className="border border-gray-700 rounded-lg p-4 ">
+              <div key={docType.type} className="rounded-lg p-4 ">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="font-semibold text-lg">{docType.type} Document</h3>
