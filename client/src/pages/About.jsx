@@ -7,7 +7,7 @@ const About = () => {
       <div className="relative bg-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-900 to-teal-800 opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-900  opacity-90" />
           <div className="absolute inset-y-0 right-0 w-1/2">
             <svg
               className="h-full w-screen text-white opacity-10"
@@ -25,7 +25,7 @@ const About = () => {
           <div className="md:w-3/4 lg:w-full">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl text-center space-y-4">
               <span className="block text-7xl mb-4">Transforming</span>
-              <span className="block text-teal-300 text-7xl">
+              <span className="block text-emerald-500 text-7xl">
                 Corporate Lending
               </span>
             </h1>
@@ -39,7 +39,7 @@ const About = () => {
 
             <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-3">
               {/* Stats */}
-              <div className="border-2 border-teal-200 rounded-lg p-6">
+              <div className="border-4 border-blue-500 rounded-lg p-6">
                 <p className="text-4xl font-bold text-white">$5B+</p>
                 <p className="text-sm text-teal-200 mt-2">Loans Disbursed</p>
               </div>
