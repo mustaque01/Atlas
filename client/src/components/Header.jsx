@@ -4,7 +4,7 @@ import atlas2 from '../assets/atlas2.png';
 
 const Header = () => {
   return (
-    <nav className="border-zinc-800 bg-gray-900 bg-opacity-50 sticky top-0 left-0 w-full z-50 backdrop-blur-lg">
+    <nav className=" border-zinc-800 z-50 bg-black bg-opacity-50 w-full backdrop-blur-lg">
       <div className="max-w-7xl mx-auto  py-4">
         <div className="flex items-center justify-between">
           {/* Logo and Navigation Links Container */}
@@ -13,13 +13,13 @@ const Header = () => {
             <Link to="/">
               <img src={atlas2} alt="Logo" className="w-[200px] h-[70px]" />
             </Link>
-            </div>
-            {/* Navigation Links (Hidden on mobile, visible on medium screens and up) */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-              <Link to="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
-              <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
-           
+          </div>
+          {/* Navigation Links (Hidden on mobile, visible on medium screens and up) */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <Link to="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
+            <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
+            <Link to="/id" className="text-gray-300 hover:text-white transition-colors"></Link>
           </div>
 
           {/* Get Started Button */}

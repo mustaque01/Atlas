@@ -11,7 +11,7 @@ function App() {
       <Outlet />
       <Footer />
       {/* ToastContainer should be placed at the root level */}
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -22,7 +22,7 @@ function App() {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
     </>
   );
 }

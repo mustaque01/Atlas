@@ -26,7 +26,7 @@ const HomePage = () => {
   // const [activeTab, setActiveTab] = useState('features');
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white z-0">
       {/* Navbar */}
 
 

@@ -13,7 +13,7 @@ import About from '@/pages/About'
 import Contact from '@/pages/Contact'
 import PhoneVerification from '@/pages/PhoneVerification.'
 import Dashboard from '@/pages/Dashboard'
-
+import DocumentScanner from '@/pages/IdVerification'
 const router = createBrowserRouter([
     {
         path: "/",
@@ -66,6 +66,10 @@ const router = createBrowserRouter([
          {
             path:"/dashboard",
             element:<Dashboard />  
+         },
+         {
+            path:"/id",
+            element:<DocumentScanner/>  
          },
         ]
     }
