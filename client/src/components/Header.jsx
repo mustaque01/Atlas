@@ -25,7 +25,7 @@ const Header = () => {
           {/* Get Started Button */}
           <div className="hidden md:flex items-center mr-5">
             <Link
-              to="/PhoneVerification"
+              to="/signup"
               className="w-[10rem] bg-rose-400 px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex justify-center items-center gap-2"
             >
               Get Started <ArrowRight className="w-5 h-4" />

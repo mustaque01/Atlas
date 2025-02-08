@@ -1,23 +1,42 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    if (name === 'email') setEmail(value);
+    if (name === 'password') setPassword(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login submitted:', formData);
+
+    try {
+      const response = await fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login successful:', data);
+        localStorage.setItem('token', data.token);
+        window.location.href = '/result';
+      } else {
+        setErrorMessage(data.message || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setErrorMessage('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -26,10 +45,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="space-y-6">
             <div>
-              <label 
-                htmlFor="email" 
-                className="block text-sm font-medium text-black mb-1"
-              >
+              <label htmlFor="email" className="block text-sm font-medium text-black mb-1">
                 Email
               </label>
               <input
@@ -37,7 +53,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 required
-                value={formData.email}
+                value={email}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 placeholder="Email"
@@ -45,10 +61,7 @@ const Login = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="password" 
-                className="block text-sm font-medium text-black mb-1"
-              >
+              <label htmlFor="password" className="block text-sm font-medium text-black mb-1">
                 Password
               </label>
               <input
@@ -56,25 +69,24 @@ const Login = () => {
                 name="password"
                 type="password"
                 required
-                value={formData.password}
+                value={password}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 placeholder="******************"
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full px-4 py-2 font-bold text-white rounded-full bg-green-600"
-            >
+            {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+
+            <button type="submit" className="w-full px-4 py-2 font-bold text-white rounded-full bg-green-600">
               Login
             </button>
 
             <div className="text-center text-sm text-black">
               Don't have an account?{' '}
-              <a href="/signup" className="text-blue-600 align-baseline hover:text-blue-800">
+              <Link to="/signup" className="text-blue-600 align-baseline hover:text-blue-800">
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
         </form>

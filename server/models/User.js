@@ -15,17 +15,19 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true 
     },
-        lastLogin: {
-			type: Date,
-			default: Date.now,
-		},
         password:{
             type:String,
             required:true,
         },
+        phoneNumber: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true
+        },
 		role:{
             type:String,
-            default:"user"
+            default:"admin"
         },
         verificationToken: String,
 		verificationTokenExpiresAt: Date,

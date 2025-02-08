@@ -1,49 +1,52 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "react-phone-input-2/lib/style.css";
+import { useState } from "react";
 
 const PhoneVerification = () => {
-  const navigate = useNavigate(); 
-  useEffect(() => {
-    const configuration = {
-      widgetId: "356263666154323437313839",
-      tokenAuth: "440416Tf26F8pNlm67a05d65P1",
-      identifier: "", 
-      exposeMethods: false, 
-      success: (data) => {
-        console.log('Success response:', data);
-        navigate("/signup");
-      },
-      failure: (error) => {
-        console.log('Failure reason:', error);
-      },
-    };
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [message, setMessage] = useState("");
 
-    const script = document.createElement('script');
-    script.src = "https://control.msg91.com/app/assets/otp-provider/otp-provider.js";
-    script.async = true; 
-    script.onload = () => {
-      if (typeof initSendOTP === 'function') { 
-        initSendOTP(configuration);
+  const sendOtp = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/generate-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setOtpSent(true);
+        setMessage(`OTP sent successfully! Check the console.`);
+        console.log(`OTP for ${phoneNumber}:`, data.otp); // OTP printed in console
       } else {
-        console.error("initSendOTP function is not defined. Script likely failed to load.");
+        setMessage(data.message);
       }
-    };
-
-    script.onerror = () => {
-      console.error("Failed to load the OTP provider script.");
-    };
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [navigate]); 
+    } catch (error) {
+      setMessage("Error sending OTP.");
+    }
+  };
 
   return (
-    <div>
-     
+    <div className="p-6 max-w-md mx-auto bg-white shadow-md rounded-md">
+      <h2 className="text-xl font-bold mb-4">Phone Verification</h2>
+
+      <input
+        type="text"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        placeholder="Enter phone number"
+        className="w-full px-3 py-2 border rounded mb-2"
+      />
+      <button
+        onClick={sendOtp}
+        disabled={otpSent}
+        className="w-full px-3 py-2 bg-blue-600 text-white rounded mb-2"
+      >
+        {otpSent ? "OTP Sent" : "Verify Phone Number"}
+      </button>
+
+      {message && <p className="mt-2 text-sm text-center text-red-500">{message}</p>}
     </div>
   );
 };
