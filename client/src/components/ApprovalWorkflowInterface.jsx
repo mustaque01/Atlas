@@ -55,7 +55,7 @@ const ApprovalWorkflow = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 rounded-3xl">
       <Card className="bg-gray-800 border-0">
         <CardHeader>
           <CardTitle className="text-gray-300">Active Applications</CardTitle>
