@@ -11,7 +11,7 @@ const Header = () => {
           <div className="flex items-center justify-between md:ml-5">
             {/* Logo */}
             <Link to="/">
-              <img src={atlas2} alt="Logo" className="w-[200px] h-[70px]" />
+              <img src={atlas2} alt="Logo" className="w-[200px] h-[60px]" />
             </Link>
           </div>
           {/* Navigation Links (Hidden on mobile, visible on medium screens and up) */}
