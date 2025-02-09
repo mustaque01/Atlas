@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Upload, FileText } from 'lucide-react';
 
@@ -10,7 +11,6 @@ const LoanApplicationForm = () => {
   //   loanDetails: {},
   //   documents: []
   // });
-
   const steps = [
     { id: 1, title: 'Personal Information' },
     { id: 2, title: 'Employment & Income' },
@@ -189,7 +189,7 @@ const LoanApplicationForm = () => {
                 />
               </div>
               <br></br>
-              <div className="col-span-2">
+              <div className="">
                 <label className="block text-sm font-medium mb-2 ">Reason for Loan</label>
                 <select className="w-full p-3 bg-gray-700 rounded-lg text-gray-400">
                   <option value="">Select reason for loan</option>
@@ -239,7 +239,7 @@ const LoanApplicationForm = () => {
             )}
             <button 
               className="px-6 py-2 bg-emerald-500 rounded-lg ml-auto"
-              onClick={() => step < 5 ? setStep(step + 1) : null}
+              onClick={() => step < 3 ? setStep(step + 1) : null}
             >
               {step === 3 ? 'Submit Application' : 'Next'}
             </button>
