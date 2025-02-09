@@ -68,7 +68,7 @@ const ApprovalWorkflow = () => {
                   <div>
                     <h4 className="text-lg font-medium  text-gray-300">{app.applicant}</h4>
                     <p className="text-sm text-gray-400">
-                      {app.type} - ${app.amount.toLocaleString()}
+                      {app.type} - &#x20b9;{app.amount.toLocaleString()}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">

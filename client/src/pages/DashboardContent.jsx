@@ -170,7 +170,7 @@ const DashboardOverview = () => {
                     >
                       <td className="py-3 text-sm">{app.id}</td>
                       <td className="py-3 text-sm">{app.applicant}</td>
-                      <td className="py-3 text-sm">${app.amount.toLocaleString()}</td>
+                      <td className="py-3 text-sm">&#x20b9;{app.amount.toLocaleString()}</td>
                       <td className="py-3 text-sm">
                         <span className={`px-2 py-1 rounded-full text-xs ${
                           app.status === 'Approved' ? 'bg-emerald-500/20 text-emerald-500' :
