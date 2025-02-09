@@ -7,6 +7,14 @@ const PhoneVerification = () => {
   const [message, setMessage] = useState("");
 
   const sendOtp = async () => {
+    if (!phoneNumber || phoneNumber.length < 10) {
+      setMessage("Invalid phone number.");
+      console.warn(`Validation Warning: Phone number "${phoneNumber}" is invalid or too short.`);
+      return;
+    }
+
+    console.log(`Initiating OTP sending process for phone number: ${phoneNumber}`); // Task initiation
+
     try {
       const response = await fetch("http://localhost:4000/api/auth/generate-otp", {
         method: "POST",
@@ -14,16 +22,25 @@ const PhoneVerification = () => {
         body: JSON.stringify({ phoneNumber }),
       });
 
+      console.log("Request sent. Awaiting response..."); // Intermediate log
+
       const data = await response.json();
+
       if (response.ok) {
         setOtpSent(true);
         setMessage(`OTP sent successfully! Check the console.`);
-        console.log(`OTP for ${phoneNumber}:`, data.otp); // OTP printed in console
+        console.log(`Success: OTP successfully sent to ${phoneNumber}. OTP: ${data.otp}`); // Success log
       } else {
-        setMessage(data.message);
+        setMessage(data.message || "Failed to send OTP.");
+        console.error(`API Error: Failed to send OTP to ${phoneNumber}. Message: ${data.message}`); // API error log
       }
     } catch (error) {
       setMessage("Error sending OTP.");
+      console.error(
+        `Critical Error: An error occurred while sending OTP to ${phoneNumber}. Error Message: ${error.message}`
+      ); // Critical error log
+    } finally {
+      console.log(`Operation completed for phone number: ${phoneNumber}`); // Final log
     }
   };
 
