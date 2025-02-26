@@ -1,7 +1,6 @@
 import { IoMenu } from "react-icons/io5";
 import { SiGoogleforms } from "react-icons/si";
 import { useState } from "react";
-import { RxCross2 } from "react-icons/rx";
 import LoanApplicationForm from "@/components/LoanApplicationForm";
 import DashboardContent from "./DashboardContent";
 import DocumentVerification from "@/components/DocumentVerificationInterface";
@@ -27,7 +26,7 @@ const Dashboard = () => {
       // case 'settings':
       //   return <Settings />;
       // default:
-        return <DashboardContent/>;
+       
     }
   } 
   return (

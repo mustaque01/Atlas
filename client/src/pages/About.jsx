@@ -1,10 +1,10 @@
 import { FaClock, FaClipboardCheck, FaLaptop, FaMoneyBillWave, FaHeadset } from "react-icons/fa";
 import { FaShieldAlt, FaLock, FaChartLine, FaIndustry, FaCreditCard, FaDatabase, FaUserShield, FaClipboardList } from "react-icons/fa";
-
+import { ArrowRight} from 'lucide-react'
 const About = () => {
   return (
     <>
-      <div className="relative bg-white overflow-hidden">
+      <div className="relative bg-white overflow-hidden w-full">
         {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-900  opacity-90" />
@@ -21,7 +21,7 @@ const About = () => {
         </div>
         {/* // Atlas About Page Hero Section */}
         {/* Content */}
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+        <div className="relative max-w-fit mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
           <div className="md:w-3/4 lg:w-full">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl text-center space-y-4">
               <span className="block text-7xl mb-4">Transforming</span>
@@ -54,9 +54,9 @@ const About = () => {
             </div>
 
             <div className="mt-10 flex gap-4">
-              <button className="bg-white text-teal-900 px-8 py-3 rounded-lg font-semibold hover:bg-teal-50 transition-colors">
-                Get Started
-              </button>
+              <a href="/signup" className="bg-white text-teal-900 px-4 flex items-center py-3 rounded-lg font-semibold hover:bg-teal-50 transition-colors">
+                Get Started <ArrowRight className="w-5 h-5" />
+              </a>
               <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
                 Learn More
               </button>
@@ -66,7 +66,7 @@ const About = () => {
       </div>
 
       {/* // Atlas About page Features Section */}
-      <div className="flex items-center justify-center h-auto w-screen px-4 mt-4">
+      <div className="flex items-center justify-center h-auto  px-4 mt-4 w-full">
       <div className="w-full shadow-xl rounded-3xl p-2 md:p-12 text-center ">
         <h1 className="text-6xl font-bold text-teal-900 text-center">
           Empowering Small Businesses with Smarter Banking

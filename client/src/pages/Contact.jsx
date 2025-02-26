@@ -16,12 +16,12 @@ export default function ContactUs() {
         {/* Contact Information Cards */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { icon: FaPhoneAlt, title: "Call Us", info: "+1 (800) 123-4567" },
+            { icon: FaPhoneAlt, title: "Call Us", info: "+91 8798654763" },
             { icon: FaEnvelope, title: "Email Us", info: "support@atlasbank.com" },
-            { icon: FaMapMarkerAlt, title: "Visit Us", info: "123 Finance Street, NY, USA" }
+            { icon: FaMapMarkerAlt, title: "Visit Us", info: "vijay nagar, indore, Mp" }
           ].map((item, index) => (
             <div key={index} className="p-6 bg-gray-800/50 rounded-xl shadow-lg hover:bg-gray-800/70 transition-all duration-300 border border-gray-700/50">
-              <item.icon className="text-rose-500 text-3xl md:text-4xl mx-auto mb-4" />
+              <item.icon className="text-rose-500 text-3xl md:text-4xl ml-0 mb-4" />
               <h3 className="text-xl font-semibold text-gray-100">{item.title}</h3>
               <p className="text-gray-300 mt-2">{item.info}</p>
             </div>

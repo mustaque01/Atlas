@@ -4,7 +4,7 @@ import {
   Users, LineChart as ChartIcon,
   CheckCircle, TrendingUp, Brain
 } from 'lucide-react';
-import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, PieChart, Pie, Cell } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area} from 'recharts';
 
 const trendData = [
   { month: 'Jan', value: 30, users: 1200 },
@@ -15,12 +15,12 @@ const trendData = [
   { month: 'Jun', value: 60, users: 4000 }
 ];
 
-const pieData = [
-  { name: 'AI Decisions', value: 65 },
-  { name: 'Manual Review', value: 35 }
-];
+// const pieData = [
+//   { name: 'AI Decisions', value: 65 },
+//   { name: 'Manual Review', value: 35 }
+// ];
 
-const COLORS = ['#10b981', '#374151'];
+// const COLORS = ['#10b981', '#374151'];
 
 const HomePage = () => {
   // const [activeTab, setActiveTab] = useState('features');
@@ -48,9 +48,10 @@ const HomePage = () => {
               process and reduce risks.
             </p>
             <div className="flex items-center gap-4">
-              <button className="bg-rose-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors">
+              <a className="bg-rose-500 text-white px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-emerald-600 transition-colors"
+                href="/signup">
                 Get Started <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
               <button className="border border-zinc-700 px-8 py-4 rounded-lg flex items-center gap-2 hover:bg-zinc-900 transition-colors">
                 Watch Demo
               </button>
@@ -229,7 +230,7 @@ const HomePage = () => {
               }
             ].map((step, index) => (
               <div key={index} className="relative">
-                <div className="bg-black/50 p-8 rounded-xl border border-zinc-800">
+                <div className="bg-black/50 p-4 rounded-xl border border-zinc-800">
                   <div className="bg-emerald-500/20 p-4 rounded-lg inline-block mb-6">
                     {step.icon}
                   </div>
@@ -237,7 +238,7 @@ const HomePage = () => {
                   <p className="text-gray-400">{step.description}</p>
                 </div>
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-[2px] bg-emerald-500" />
+                  <div className="hidden md:block absolute top-1/2 -right-10 w-12 h-[2px] bg-emerald-500 " />
                 )}
               </div>
             ))}

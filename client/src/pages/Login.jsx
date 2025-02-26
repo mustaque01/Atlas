@@ -29,7 +29,7 @@ const Login = () => {
       if (response.ok) {
         console.log('Login successful:', data);
         localStorage.setItem('token', data.token);
-        window.location.href = '/result';
+        window.location.href = '/dashboard';
       } else {
         setErrorMessage(data.message || 'Login failed. Please try again.');
       }
