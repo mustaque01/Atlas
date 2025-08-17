@@ -3,7 +3,6 @@ const Otp = require("../models/Otp");
 const User = require("../models/User"); 
 const generateTokenAndSetCookie = require('../utils/generateTokenAndSetCookie')
 
-
 const signup = async (req, res) => {
     const { firstName, lastName, email, password, confirmPassword, phoneNumber} = req.body;
 
@@ -22,9 +21,23 @@ const signup = async (req, res) => {
 
     try {
         // Check if user already exists 
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({ 
+            $or: [{ email }, { phoneNumber }] 
+        });
+        
         if (existingUser) {
-            return res.status(400).json({ message: 'User already exists.' });
+            if (existingUser.email === email) {
+                return res.status(400).json({ message: 'Email already registered.' });
+            }
+            if (existingUser.phoneNumber === phoneNumber) {
+                return res.status(400).json({ message: 'Phone number already registered.' });
+            }
+        }
+
+        // Check if phone number is verified
+        const otpEntry = await Otp.findOne({ phoneNumber, isPhoneVerified: true });
+        if (!otpEntry) {
+            return res.status(400).json({ message: 'Please verify your phone number first.' });
         }
 
         // Hash the password
@@ -32,7 +45,6 @@ const signup = async (req, res) => {
 
         const verificationToken = Math.floor(100000 + Math.random() * 900000).toString();
 
-    
         // Create a new user instance and save to the database
         const newUser = new User({
             firstName,
@@ -40,35 +52,29 @@ const signup = async (req, res) => {
             email,
             phoneNumber,
             password: hashedPassword,
+            isPhoneVerified: true, // Mark as verified since OTP was verified
             verificationToken,
             verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
         });
         await newUser.save();
 
-        // jwt
+        // Generate JWT token
 		generateTokenAndSetCookie(res, newUser._id);
 
-
         res.status(201).json({
-            success:true,
-             message: 'User registered successfully.',
-             user:{
+            success: true,
+            message: 'User registered successfully.',
+            user: {
                 ...newUser._doc,
-                password:undefined,
-             },
-             });
-        
+                password: undefined,
+            },
+        });
         
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 };
-
-
-module.exports = { signup}
-
-
 
 // Generate OTP
 const generateOTP = async (req, res) => {
@@ -77,6 +83,17 @@ const generateOTP = async (req, res) => {
     try {
         if (!phoneNumber) {
             return res.status(400).json({ message: "Phone number is required." });
+        }
+
+        // Validate phone number format (basic validation)
+        if (phoneNumber.length < 10 || phoneNumber.length > 10) {
+            return res.status(400).json({ message: "Please enter a valid 10-digit phone number." });
+        }
+
+        // Check if phone number is already registered
+        const existingUser = await User.findOne({ phoneNumber });
+        if (existingUser) {
+            return res.status(400).json({ message: "Phone number already registered." });
         }
 
         const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Generate 6-digit OTP
@@ -93,9 +110,13 @@ const generateOTP = async (req, res) => {
             { new: true, upsert: true, setDefaultsOnInsert: true }
         );
 
-        console.log(`OTP sent to ${phoneNumber}: ${otp}`); // Debugging purpose
+        console.log(`OTP sent to ${phoneNumber}: ${otp}`); // For debugging - remove in production
 
-        res.status(200).json({ message: "OTP sent successfully." });
+        res.status(200).json({ 
+            message: "OTP sent successfully.",
+            // Remove in production:
+            debug: { otp: otp } // Only for testing
+        });
 
     } catch (error) {
         console.error("Error generating OTP:", error);
@@ -115,12 +136,16 @@ const verifyOTP = async (req, res) => {
         // Find OTP record in Otp model
         const otpEntry = await Otp.findOne({ phoneNumber });
 
-        if (!otpEntry) {
-            return res.status(400).json({ message: "Invalid OTP or phone number." });
+        if (!otpEntry || !otpEntry.otp) {
+            return res.status(400).json({ message: "OTP not found. Please generate a new OTP." });
         }
 
         // Check if OTP is expired
         if (Date.now() > otpEntry.otpExpiresAt) {
+            // Clear expired OTP
+            otpEntry.otp = undefined;
+            otpEntry.otpExpiresAt = undefined;
+            await otpEntry.save();
             return res.status(400).json({ message: "OTP expired. Please request a new one." });
         }
 
@@ -135,17 +160,15 @@ const verifyOTP = async (req, res) => {
         otpEntry.otpExpiresAt = undefined;
         await otpEntry.save();
 
-        // Update User model to mark phone as verified
-        await User.findOneAndUpdate({ phoneNumber }, { isPhoneVerified: true });
-
-        res.status(200).json({ message: "Phone number verified successfully." });
+        res.status(200).json({ 
+            message: "Phone number verified successfully.",
+            verified: true 
+        });
 
     } catch (error) {
         console.error("Error verifying OTP:", error);
         res.status(500).json({ message: "Error verifying OTP. Try again later." });
     }
 };
-
-
 
 module.exports = { signup, generateOTP, verifyOTP };

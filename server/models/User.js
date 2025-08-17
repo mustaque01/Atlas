@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
             unique: true,
             trim: true
         },
+        isPhoneVerified: {
+            type: Boolean,
+            default: false
+        },
 		role:{
             type:String,
             default:"admin"
