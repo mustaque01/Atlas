@@ -33,7 +33,7 @@ const HomePage = () => {
 
       {/* Hero Section with Background Image */}
       <div 
-        className="relative px-6 pt-32 pb-20 sm:px-12 lg:px-24"
+        className="relative px-6 pt-32 pb-20 sm:px-12 lg:px-24 overflow-hidden"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
@@ -41,118 +41,177 @@ const HomePage = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Background overlay for better text readability */}
-        <div className="absolute inset-0 z-0 bg-black/70"></div>
+        {/* Animated background overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-black/80 via-black/70 to-black/80"></div>
+        
+        {/* Floating elements for visual interest */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-rose-500/10 to-purple-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10">
-            <div className="inline-block px-4 py-2 mb-6 rounded-full bg-emerald-500/10 text-emerald-500">
-              Advanced Technology Loan Assessment System
+            <div className="inline-flex items-center gap-2 px-6 py-3 mb-8 rounded-full bg-gradient-to-r from-emerald-500/10 to-rose-500/10 border border-emerald-500/20 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <span className="text-emerald-400 font-medium">Advanced Technology Loan Assessment System</span>
             </div>
-            <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
+            
+            <h1 className="mb-8 text-5xl font-black leading-tight md:text-7xl lg:text-8xl">
               Transform Your <br />
-              <span className="text-rose-500">Lending Operations</span><br />
-              With AI Intelligence
+              <span className="text-transparent bg-gradient-to-r from-rose-500 via-pink-500 to-red-500 bg-clip-text animate-gradient">
+                Lending Operations
+              </span><br />
+              <span className="relative">
+                With AI Intelligence
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-rose-500 rounded-full"></div>
+              </span>
             </h1>
-            <p className="max-w-2xl mb-8 text-xl text-gray-400">
+            
+            <p className="max-w-3xl mb-10 text-xl leading-relaxed text-gray-300">
               Revolutionary loan origination platform combining artificial intelligence,
               blockchain security, and advanced analytics to streamline your lending
-              process and reduce risks.
+              process and reduce risks by <span className="text-emerald-400 font-semibold">up to 90%</span>.
             </p>
-            <div className="flex items-center gap-4">
-              <a className="flex items-center gap-2 px-8 py-4 text-white transition-colors rounded-lg bg-rose-500 hover:bg-emerald-600"
+            
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <a className="group flex items-center gap-3 px-10 py-5 text-white font-semibold transition-all duration-300 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 shadow-2xl hover:shadow-rose-500/25 transform hover:scale-105"
                 href="/signup">
-                Get Started <ArrowRight className="w-5 h-5" />
+                Get Started Free
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </a>
-              <button className="flex items-center gap-2 px-8 py-4 transition-colors border rounded-lg border-zinc-700 hover:bg-zinc-900">
+              <button className="group flex items-center gap-3 px-10 py-5 font-semibold transition-all duration-300 border-2 rounded-xl border-zinc-600 hover:border-emerald-500 bg-black/30 backdrop-blur-sm hover:bg-black/50 hover:scale-105">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                  <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-b-2 border-t-transparent border-b-transparent ml-1"></div>
+                </div>
                 Watch Demo
               </button>
             </div>
           </div>
 
-          {/* Stats Overview */}
-          <div className="relative z-10 grid grid-cols-1 gap-6 mt-20 md:grid-cols-4">
-            <div className="p-6 bg-gradient-to-br from-zinc-900 to-zinc-800/50 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-lg bg-purple-500/20">
-                  <Zap className="w-6 h-6 text-purple-500" />
+          {/* Enhanced Stats Overview */}
+          <div className="relative z-10 grid grid-cols-1 gap-6 mt-20 md:grid-cols-2 lg:grid-cols-4">
+            <div className="group p-8 bg-gradient-to-br from-zinc-900/90 to-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-purple-600/20 group-hover:from-purple-500/30 group-hover:to-purple-600/30 transition-all">
+                  <Zap className="w-8 h-8 text-purple-500" />
                 </div>
-                <h3 className="text-xl font-semibold">Processing</h3>
+                <h3 className="text-xl font-bold">Processing Speed</h3>
               </div>
-              <p className="mb-2 text-4xl font-bold">4x</p>
-              <p className="text-gray-400">Faster approval</p>
+              <div className="mb-3 text-5xl font-black bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">4x</div>
+              <p className="text-gray-400 font-medium">Faster approval times</p>
+              <div className="mt-4 w-full bg-zinc-700 rounded-full h-2">
+                <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full w-4/5 animate-pulse"></div>
+              </div>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-zinc-900 to-zinc-800/50 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-lg bg-emerald-500/20">
-                  <Shield className="w-6 h-6 text-emerald-500" />
+            <div className="group p-8 bg-gradient-to-br from-zinc-900/90 to-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 group-hover:from-emerald-500/30 group-hover:to-emerald-600/30 transition-all">
+                  <Shield className="w-8 h-8 text-emerald-500" />
                 </div>
-                <h3 className="text-xl font-semibold">Accuracy</h3>
+                <h3 className="text-xl font-bold">Accuracy Rate</h3>
               </div>
-              <p className="mb-2 text-4xl font-bold">99.9%</p>
-              <p className="text-gray-400">Decision accuracy</p>
+              <div className="mb-3 text-5xl font-black bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">99.9%</div>
+              <p className="text-gray-400 font-medium">Decision accuracy</p>
+              <div className="mt-4 w-full bg-zinc-700 rounded-full h-2">
+                <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2 rounded-full w-full animate-pulse delay-200"></div>
+              </div>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-zinc-900 to-zinc-800/50 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-lg bg-blue-500/20">
-                  <Users className="w-6 h-6 text-blue-500" />
+            <div className="group p-8 bg-gradient-to-br from-zinc-900/90 to-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 rounded-xl bg-gradient-to-r from-blue-500/20 to-blue-600/20 group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all">
+                  <Users className="w-8 h-8 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-semibold">Clients</h3>
+                <h3 className="text-xl font-bold">Active Users</h3>
               </div>
-              <p className="mb-2 text-4xl font-bold">50K+</p>
-              <p className="text-gray-400">Active users</p>
+              <div className="mb-3 text-5xl font-black bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">50K+</div>
+              <p className="text-gray-400 font-medium">Trusted clients</p>
+              <div className="mt-4 w-full bg-zinc-700 rounded-full h-2">
+                <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-3/4 animate-pulse delay-300"></div>
+              </div>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-zinc-900 to-zinc-800/50 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-lg bg-rose-500/20">
-                  <TrendingUp className="w-6 h-6 text-rose-500" />
+            <div className="group p-8 bg-gradient-to-br from-zinc-900/90 to-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-rose-500/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 rounded-xl bg-gradient-to-r from-rose-500/20 to-rose-600/20 group-hover:from-rose-500/30 group-hover:to-rose-600/30 transition-all">
+                  <TrendingUp className="w-8 h-8 text-rose-500" />
                 </div>
-                <h3 className="text-xl font-semibold">Growth</h3>
+                <h3 className="text-xl font-bold">Growth Rate</h3>
               </div>
-              <p className="mb-2 text-4xl font-bold">450%</p>
-              <p className="text-gray-400">Year over year</p>
+              <div className="mb-3 text-5xl font-black bg-gradient-to-r from-rose-400 to-rose-600 bg-clip-text text-transparent">450%</div>
+              <p className="text-gray-400 font-medium">Year over year</p>
+              <div className="mt-4 w-full bg-zinc-700 rounded-full h-2">
+                <div className="bg-gradient-to-r from-rose-500 to-rose-600 h-2 rounded-full w-5/6 animate-pulse delay-400"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Features */}
-      <div className="py-20 bg-emerald-500/10">
-        <div className="px-6 mx-auto max-w-7xl sm:px-12 lg:px-24">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold">Powered by Advanced Technology</h2>
-            <p className="max-w-2xl mx-auto text-gray-400">
+      {/* Enhanced Main Features */}
+      <div className="py-20 bg-gradient-to-br from-emerald-500/10 via-transparent to-purple-500/10 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="px-6 mx-auto max-w-7xl sm:px-12 lg:px-24 relative z-10">
+          <div className="mb-20 text-center">
+            <div className="inline-flex items-center gap-2 px-6 py-3 mb-6 rounded-full bg-gradient-to-r from-emerald-500/10 to-purple-500/10 border border-emerald-500/20 backdrop-blur-sm">
+              <Brain className="w-5 h-5 text-emerald-400" />
+              <span className="text-emerald-400 font-medium">Powered by Advanced AI</span>
+            </div>
+            <h2 className="mb-6 text-5xl font-black bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              Revolutionary Technology Suite
+            </h2>
+            <p className="max-w-3xl mx-auto text-xl text-gray-400 leading-relaxed">
               Our platform combines cutting-edge AI, blockchain, and analytics to provide
-              a comprehensive lending solution.
+              a comprehensive lending solution that adapts to your business needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 lg:gap-12 md:grid-cols-3">
             {[
               {
-                icon: <Brain className="w-8 h-8 text-purple-500" />,
+                icon: <Brain className="w-10 h-10 text-purple-500" />,
                 title: "AI-Driven Decision Making",
-                description: "Advanced machine learning algorithms analyze multiple data points for accurate risk assessment and fraud detection."
+                description: "Advanced machine learning algorithms analyze multiple data points for accurate risk assessment and fraud detection with 99.9% precision.",
+                gradient: "from-purple-500/20 to-purple-600/20",
+                hoverGradient: "group-hover:from-purple-500/30 group-hover:to-purple-600/30",
+                borderColor: "hover:border-purple-500/50",
+                delay: "delay-100"
               },
               {
-                icon: <Lock className="w-8 h-8 text-emerald-500" />,
+                icon: <Lock className="w-10 h-10 text-emerald-500" />,
                 title: "Blockchain Security",
-                description: "Immutable record-keeping and document verification ensure the highest level of security and transparency."
+                description: "Immutable record-keeping and document verification ensure the highest level of security and transparency for all transactions.",
+                gradient: "from-emerald-500/20 to-emerald-600/20",
+                hoverGradient: "group-hover:from-emerald-500/30 group-hover:to-emerald-600/30",
+                borderColor: "hover:border-emerald-500/50",
+                delay: "delay-200"
               },
               {
-                icon: <ChartIcon className="w-8 h-8 text-blue-500" />,
+                icon: <ChartIcon className="w-10 h-10 text-blue-500" />,
                 title: "Advanced Analytics",
-                description: "Real-time insights and predictive analytics help make informed lending decisions."
+                description: "Real-time insights and predictive analytics help make informed lending decisions with comprehensive reporting tools.",
+                gradient: "from-blue-500/20 to-blue-600/20",
+                hoverGradient: "group-hover:from-blue-500/30 group-hover:to-blue-600/30",
+                borderColor: "hover:border-blue-500/50",
+                delay: "delay-300"
               }
             ].map((feature, index) => (
-              <div key={index} className="p-8 transition-colors border bg-black/50 rounded-xl border-zinc-800 hover:border-zinc-700">
-                <div className="inline-block p-4 mb-6 rounded-lg bg-zinc-800/50">
+              <div key={index} className={`group p-10 transition-all duration-500 border bg-black/30 rounded-2xl border-zinc-800 ${feature.borderColor} hover:scale-105 backdrop-blur-sm ${feature.delay} animate-float`}>
+                <div className={`inline-flex p-6 mb-8 rounded-2xl bg-gradient-to-r ${feature.gradient} ${feature.hoverGradient} transition-all duration-300 group-hover:scale-110`}>
                   {feature.icon}
                 </div>
-                <h3 className="mb-4 text-xl font-semibold">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
+                <h3 className="mb-6 text-2xl font-bold group-hover:text-white transition-colors">{feature.title}</h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">{feature.description}</p>
+                
+                {/* Progress indicator */}
+                <div className="mt-8 w-full bg-zinc-800 rounded-full h-1">
+                  <div className={`bg-gradient-to-r ${feature.gradient.replace('/20', '').replace('/20', '')} h-1 rounded-full w-0 group-hover:w-full transition-all duration-1000`}></div>
+                </div>
               </div>
             ))}
           </div>
@@ -360,21 +419,70 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="py-20">
-        <div className="px-6 mx-auto max-w-7xl sm:px-12 lg:px-24">
-          <div className="p-12 text-center bg-gradient-to-br from-emerald-500/20 to-purple-500/20 rounded-2xl">
-            <h2 className="mb-6 text-4xl font-bold">Ready to Transform Your Lending?</h2>
-            <p className="max-w-2xl mx-auto mb-8 text-gray-400">
-              Join leading financial institutions in revolutionizing their loan origination process with AI-powered technology.
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <button className="flex items-center gap-2 px-8 py-4 text-white transition-colors rounded-lg bg-rose-500 hover:bg-emerald-600">
-                Start Free Trial <ArrowRight className="w-5 h-5" />
+      {/* Enhanced Call to Action */}
+      <div className="py-20 relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-rose-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="px-6 mx-auto max-w-7xl sm:px-12 lg:px-24 relative z-10">
+          <div className="relative p-16 text-center bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 rounded-3xl backdrop-blur-lg border border-zinc-700/50 shadow-2xl">
+            {/* Glowing border effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-rose-500/20 via-purple-500/20 to-emerald-500/20 rounded-3xl blur-xl -z-10"></div>
+            
+            <div className="mb-8">
+              <div className="inline-flex items-center gap-3 px-8 py-4 mb-6 rounded-full bg-gradient-to-r from-rose-500/10 to-emerald-500/10 border border-rose-500/20">
+                <div className="w-3 h-3 bg-rose-500 rounded-full animate-pulse"></div>
+                <span className="text-rose-400 font-semibold">Join 50,000+ Financial Leaders</span>
+              </div>
+              
+              <h2 className="mb-6 text-5xl lg:text-6xl font-black">
+                Ready to{' '}
+                <span className="text-transparent bg-gradient-to-r from-rose-500 via-purple-500 to-emerald-500 bg-clip-text animate-gradient">
+                  Transform
+                </span>{' '}
+                Your Lending?
+              </h2>
+              
+              <p className="max-w-3xl mx-auto mb-10 text-xl leading-relaxed text-gray-300">
+                Join leading financial institutions in revolutionizing their loan origination process with 
+                <span className="text-emerald-400 font-semibold"> AI-powered technology</span> that delivers results from day one.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+              <button className="group relative flex items-center gap-3 px-12 py-6 text-lg font-bold text-white transition-all duration-300 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 shadow-2xl hover:shadow-rose-500/30 transform hover:scale-105">
+                <span>Start Free Trial</span>
+                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity -z-10"></div>
               </button>
-              <button className="flex items-center gap-2 px-8 py-4 transition-colors rounded-lg bg-white/10 hover:bg-white/20">
+              
+              <button className="group flex items-center gap-3 px-12 py-6 text-lg font-bold transition-all duration-300 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 hover:border-emerald-500/50 backdrop-blur-sm hover:bg-gradient-to-r hover:from-emerald-500/20 hover:to-blue-500/20 transform hover:scale-105">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                  <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-b-2 border-t-transparent border-b-transparent ml-1"></div>
+                </div>
                 Schedule Demo
               </button>
+            </div>
+            
+            {/* Trust indicators */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-zinc-700/50">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-400 mb-2">30-Day</div>
+                <div className="text-gray-400">Free Trial</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-rose-400 mb-2">24/7</div>
+                <div className="text-gray-400">Expert Support</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-400 mb-2">99.9%</div>
+                <div className="text-gray-400">Uptime SLA</div>
+              </div>
             </div>
           </div>
         </div>

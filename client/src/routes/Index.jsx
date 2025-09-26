@@ -14,6 +14,9 @@ import Contact from '@/pages/Contact'
 import PhoneVerification from '@/pages/PhoneVerification.'
 import Dashboard from '@/pages/Dashboard'
 import DocumentScanner from '@/pages/IdVerification'
+import ModernFormDemo from '@/components/ModernFormDemo'
+import AnimationShowcase from '@/components/AnimationShowcase'
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -70,6 +73,14 @@ const router = createBrowserRouter([
          {
             path:"/id",
             element:<DocumentScanner/>  
+         },
+         {
+            path:"/forms",
+            element:<ModernFormDemo />  
+         },
+         {
+            path:"/animations",
+            element:<AnimationShowcase />  
          },
         ]
     }
