@@ -7,10 +7,42 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
 dist
 dist-ssr
 *.local
+
+# Environment Variables (CRITICAL - Never commit!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# SMS Service logs
+sms-test-logs/
+test-sms-output.txt
+
+# Test files
+TEST_SUMMARY.md
+SMS_SETUP_GUIDE.md
+SMS_IMPLEMENTATION_COMPLETE.md
+testUsers.js
+testUserModel.js
+simpleTest.js
+testSMS.js
+smsTestServer.js
+
+# Certificate files
+*.pem
+*.key
+*.crt
 
 # Editor directories and files
 .vscode/*

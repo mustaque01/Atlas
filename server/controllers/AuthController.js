@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 const Otp = require("../models/Otp"); 
 const User = require("../models/User"); 
-const generateTokenAndSetCookie = require('../utils/generateTokenAndSetCookie')
+const generateTokenAndSetCookie = require('../utils/generateTokenAndSetCookie');
+const smsService = require('../utils/smsService');
 
 const signup = async (req, res) => {
     const { firstName, lastName, email, password, confirmPassword, phoneNumber} = req.body;
@@ -97,7 +98,19 @@ const generateOTP = async (req, res) => {
         }
 
         const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Generate 6-digit OTP
-        const otpExpiresAt = Date.now() + 5 * 60 * 1000; // OTP valid for 5 minutes
+        const otpExpiresAt = Date.now() + 10 * 60 * 1000; // OTP valid for 10 minutes
+
+        // Send OTP via SMS
+        console.log(`📱 Sending OTP to ${phoneNumber}...`);
+        const smsResult = await smsService.sendOTPSMS(phoneNumber, otp);
+        
+        if (!smsResult.success && !smsResult.simulation) {
+            console.error('❌ SMS sending failed:', smsResult.error);
+            return res.status(500).json({ 
+                message: "Failed to send OTP. Please try again later.",
+                error: smsResult.error 
+            });
+        }
 
         // Find and update existing OTP entry or create a new one
         const otpEntry = await Otp.findOneAndUpdate(
@@ -105,17 +118,23 @@ const generateOTP = async (req, res) => {
             { 
                 otp, 
                 otpExpiresAt, 
-                isPhoneVerified: false 
+                isPhoneVerified: false,
+                smsProvider: smsResult.provider,
+                messageId: smsResult.messageId
             },
             { new: true, upsert: true, setDefaultsOnInsert: true }
         );
 
-        console.log(`OTP sent to ${phoneNumber}: ${otp}`); // For debugging - remove in production
+        console.log(`✅ OTP ${smsResult.simulation ? 'simulated' : 'sent'} to ${phoneNumber} via ${smsResult.provider}`);
 
         res.status(200).json({ 
-            message: "OTP sent successfully.",
+            message: smsResult.simulation 
+                ? `OTP generated successfully. (Simulation mode: ${otp})` 
+                : "OTP sent to your phone number successfully.",
+            provider: smsResult.provider,
+            simulation: smsResult.simulation || false,
             // Remove in production:
-            debug: { otp: otp } // Only for testing
+            debug: process.env.NODE_ENV === 'development' ? { otp: otp } : undefined
         });
 
     } catch (error) {

@@ -17,5 +17,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "msg91-lib": "^2.0.2",
+    "twilio": "^5.8.0"
+  }
 }
