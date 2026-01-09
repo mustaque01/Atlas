@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area} from 'recharts';
 import backgroundImage from '../assets/artificial-intelligence Background.jpg';
+import loanVideo from '../assets/laon video.mp4';
 
 const trendData = [
   { month: 'Jan', value: 30, users: 1200 },
@@ -142,6 +143,61 @@ const HomePage = () => {
               <p className="text-gray-400 font-medium">Year over year</p>
               <div className="mt-4 w-full bg-zinc-700 rounded-full h-2">
                 <div className="bg-gradient-to-r from-rose-500 to-rose-600 h-2 rounded-full w-5/6 animate-pulse delay-400"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Product film */}
+      <div className="relative py-16 px-6 sm:px-12 lg:px-24 bg-gradient-to-br from-black via-zinc-950 to-black overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -left-10 top-10 w-64 h-64 bg-emerald-500/10 blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-80 h-80 bg-rose-500/10 blur-3xl" />
+        </div>
+
+        <div className="mx-auto max-w-6xl relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <div className="space-y-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Live product walkthrough
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">
+              See the loan journey in motion
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Watch a 60-second glimpse of our AI-first loan experience—from identity
+              verification to approval—rendered with the same UI your customers will touch.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-200">
+              {[
+                'Instant KYC and phone verification',
+                'Smart document checks with AI cues',
+                'Clear status updates for borrowers',
+                'Advisor-style guidance baked into UI'
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-rose-500/10 to-blue-500/20 blur-2xl opacity-70 group-hover:opacity-90 transition-opacity" />
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl backdrop-blur-sm">
+              <video
+                className="w-full h-full object-cover"
+                src={loanVideo}
+                autoPlay
+                loop
+                muted
+                controls
+                playsInline
+              />
+              <div className="absolute left-4 bottom-4 px-4 py-3 rounded-full bg-black/60 backdrop-blur text-sm flex items-center gap-2 border border-white/10">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Loan flow preview
               </div>
             </div>
           </div>
