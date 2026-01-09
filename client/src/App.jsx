@@ -4,28 +4,30 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+const toastOptions = {
+  position: "top-right",
+  autoClose: 3000,
+  hideProgressBar: false,
+  newestOnTop: true,
+  closeOnClick: true,
+  rtl: false,
+  pauseOnFocusLoss: true,
+  draggable: true,
+  pauseOnHover: true,
+  theme: "light"
+};
+
 function App() {
   return (
-    <>
+    <div className="min-h-screen text-white bg-black">
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </>
+      <ToastContainer {...toastOptions} />
+    </div>
   );
 }
-
-
 
 export default App;
